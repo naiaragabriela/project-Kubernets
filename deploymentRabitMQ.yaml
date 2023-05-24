@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rbtmq-dep
+  labels:
+    app: rbtmq
+  namespace: k8s-demo-naiara
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rbtmq
+  template:
+    metadata:
+      labels:
+        app: rbtmq
+        namespace: k8s-demo-naiara
+    spec:
+      containers:
+      - name: rbtmq
+        image: rabbitmq:3.11-management
+        ports:
+        - containerPort: 5672
+        - containerPort: 15672        
+
+    

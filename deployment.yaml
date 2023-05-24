@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-dep
+  labels:
+    app: redis
+  namespace: k8s-demo-naiara
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+        namespace: k8s-demo-naiara
+    spec:
+      containers:
+      - name: redis
+        image: redis:7.2-rc2
+        ports:
+        - containerPort: 6379
