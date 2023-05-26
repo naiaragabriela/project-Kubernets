@@ -4,6 +4,7 @@ metadata:
   name: rbtmq-service
   namespace: k8s-demo-naiara
 spec:
+  type: NodePort
   selector:
     app: rbtmq 
   ports:

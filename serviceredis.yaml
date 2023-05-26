@@ -4,8 +4,10 @@ metadata:
   namespace: k8s-demo-naiara
   name: redis-service
 spec:
+  type: NodePort
   selector:
-    app: redis-dep
+    app: redis
   ports:
-    port: 6379
-    targetPort: 6379
+  - port: 6379
+
+    
